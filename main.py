@@ -42,9 +42,6 @@ def main(page: ft.Page):
 
     def scan_qr_code(e):
         """Открывает веб-страницу для сканирования QR-кода"""
-        # Это простой HTML-скрипт для сканирования QR-кода.
-        # В реальном проекте вы можете разместить этот HTML на своём сервере
-        # или использовать готовые решения.
         html_content = """
         <!DOCTYPE html>
         <html>
@@ -56,7 +53,6 @@ def main(page: ft.Page):
             <div id="reader" style="width: 300px;"></div>
             <script>
                 function onScanSuccess(decodedText, decodedResult) {
-                    // Отправляем результат обратно в приложение Flet
                     window.location.href = "flet://scan?data=" + encodeURIComponent(decodedText);
                 }
                 var html5QrcodeScanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 });
@@ -65,9 +61,6 @@ def main(page: ft.Page):
         </body>
         </html>
         """
-        # Вместо открытия в браузере, здесь мы могли бы использовать WebView.
-        # Для упрощения примера откроем сканер в новой вкладке браузера.
-        # Для полноценной работы на Android понадобится использовать WebView.
         webbrowser.open("data:text/html;charset=utf-8," + html_content)
 
     scan_button = ft.ElevatedButton(
@@ -89,4 +82,5 @@ def main(page: ft.Page):
         qr_image_display,
     )
 
-ft.run(target=main, view=ft.AppView.WEB_BROWSER)
+# ========== ИСПРАВЛЕННЫЙ ЗАПУСК ==========
+ft.run(main)  # ← БЕЗ target=
