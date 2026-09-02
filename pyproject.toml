@@ -1,0 +1,28 @@
+[project]
+name = "QR Scanner"
+version = "1.0.0"
+description = "Сканер и генератор QR-кодов"
+requires-python = ">=3.8"
+authors = [
+    { name = "Your Name", email = "you@example.com" }
+]
+dependencies = [
+    "flet",
+    "qrcode",
+    "Pillow"
+]
+
+[tool.flet.metadata]
+title = "QR Scanner"
+
+[tool.flet]
+org = "your_org"
+company = "Your Company"
+copyright = "Copyright (C) 2026"
+
+# === НАСТРОЙКИ ПРАВ ДОСТУПА ДЛЯ ANDROID ===
+[tool.flet.android]
+# Разрешение для камеры - обязательно для сканирования QR-кодов
+android_permissions = [
+    "android.permission.CAMERA",
+]
