@@ -1,2 +1,0 @@
-- name: Build APK
-  run: flet build apk --yes
