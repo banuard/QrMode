@@ -16,8 +16,11 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Install Flet
-      run: pip install flet
+    - name: Install dependencies
+      run: |
+        pip install flet
+        pip install qrcode
+        pip install Pillow
 
     - name: Build APK
       run: flet build apk --yes
@@ -25,5 +28,5 @@ jobs:
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
-        name: qr-scanner
+        name: qr-scanner-app
         path: build/apk/*.apk
